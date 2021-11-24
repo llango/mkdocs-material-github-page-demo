@@ -1,0 +1,179 @@
+# Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+# Project information
+site_name: Material for MkDocs 中文文档
+site_url: https://mkdocs-material.llango.com/
+site_author: llango
+site_description: >-
+  根据一组Markdown文件创建静态网站，以托管开源或商业项目的文档-支持自定义、搜索、对移动设备友好，支持40多种语言
+
+repo_name: llango/mkdocs-material-github-page-demo
+repo_url: https://github.com/llango/mkdocs-material-github-page-demo
+
+# Copyright
+copyright: Copyright &copy; llango
+
+# Configuration
+theme:
+  name: null
+  custom_dir: material
+
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    # - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+# Plugins
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+        extensions/admonition.md: reference/admonitions.md
+        extensions/codehilite.md: reference/code-blocks.md
+        extensions/footnotes.md: reference/footnotes.md
+        extensions/metadata.md: reference/meta-tags.md
+        extensions/permalinks.md: setup/setting-up-navigation.md #permalink
+        extensions/pymdown.md: reference/admonitions.md
+        plugins/revision-date.md: setup/adding-a-git-repository.md #revision-date
+        plugins/search.md: setup/setting-up-site-search.md
+        releases/4.md: upgrading.md #upgrading-from-4x-to-5x
+        releases/5.md: upgrading.md #upgrading-from-3x-to-4x
+        releases/changelog.md: changelog.md
+        setup/adding-social-links.md: setup/setting-up-the-footer.md
+        sponsorship.md: insiders.md
+  - minify:
+      minify_html: true
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/llango
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - 主页: index.md
+  - 入门:
+    - 安装: getting-started.md
+    - 新建网站: creating-your-site.md
+    - 发布网站: publishing-your-site.md
+    - 自定义: customization.md
+    - 故障排除: troubleshooting.md
+    - 隐私保护: data-privacy.md
+    - 内测: insiders.md
+    - 许可: license.md
+  - 设置:
+    - 修改颜色: setup/changing-the-colors.md
+    - 修改字体: setup/changing-the-fonts.md
+    - 修改语言: setup/changing-the-language.md
+    - 修改logo图片和icon图标: setup/changing-the-logo-and-icons.md
+    - 设置导航: setup/setting-up-navigation.md
+    - 设置站内搜索: setup/setting-up-site-search.md
+    - 设置访问统计: setup/setting-up-site-analytics.md
+    - Setting up versioning: setup/setting-up-versioning.md
+    - 设置头部(header): setup/setting-up-the-header.md
+    - 设置底部(footer): setup/setting-up-the-footer.md
+    - 添加Github库(repository): setup/adding-a-git-repository.md
+    - 添加评论系统: setup/adding-a-comment-system.md
+  - 参考:
+    - 缩略语: reference/abbreviations.md
+    - 提示: reference/admonitions.md
+    - 按钮: reference/buttons.md
+    - 代码块: reference/code-blocks.md
+    - 内容标签: reference/content-tabs.md
+    - 表格: reference/data-tables.md
+    - 图表: reference/diagrams.md
+    - 脚注: reference/footnotes.md
+    - 格式化: reference/formatting.md
+    - Icons图标及Emojis表情: reference/icons-emojis.md
+    - 图片: reference/images.md
+    - 清单: reference/lists.md
+    - MathJax: reference/mathjax.md
+    - 元标记: reference/meta-tags.md
+    - 变量: reference/variables.md
+  - 更新日志:
+    - Material for MkDocs: changelog.md
+    - Material for MkDocs Insiders: changelog/insiders.md
+    - Guides:
+      - Upgrading: upgrading.md
+      - Deprecations: deprecations.md
+  - 译注: 
+    - 译注: note.md
